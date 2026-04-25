@@ -1,0 +1,43 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://leclabs.dev/agentir/v1/manifest.schema.json",
+  "title": "Manifest",
+  "description": "agentir manifest. Entry point of an IR directory; declares schema version, scope, and target clients.",
+  "type": "object",
+  "required": ["agentir", "scope", "targets"],
+  "additionalProperties": false,
+  "properties": {
+    "agentir": {
+      "const": 1,
+      "description": "IR schema version. Always 1 in v1."
+    },
+    "scope": {
+      "$ref": "#/$defs/Scope"
+    },
+    "targets": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Adapter ids this manifest compiles to (e.g. claude, opencode, codex)."
+    },
+    "options": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "strict": { "type": "boolean", "default": false, "description": "Fail compile on any lossy translation." },
+        "drift_check": { "enum": ["warn", "error", "ignore"], "default": "warn" },
+        "emit_warnings": { "type": "boolean", "default": true }
+      }
+    },
+    "overrides": {
+      "type": "object",
+      "additionalProperties": { "type": "object" },
+      "description": "Per-adapter override knobs (paths, behavior). Adapter-defined."
+    }
+  },
+  "$defs": {
+    "Scope": {
+      "title": "Scope",
+      "enum": ["user", "project", "local"]
+    }
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://leclabs.dev/agentir/v1/rule.schema.json",
+  "title": "Rule",
+  "description": "A rule fragment. Markdown body with optional frontmatter. Compiled to AGENTS.md/CLAUDE.md/.cursorrules etc.",
+  "type": "object",
+  "required": ["id", "body"],
+  "additionalProperties": false,
+  "properties": {
+    "id": { "type": "string", "description": "Stable identifier; usually the source filename without extension." },
+    "body": { "type": "string", "description": "Markdown content of the rule." },
+    "targets": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "If set, only emit to these adapter ids."
+    },
+    "excludes": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "If set, do not emit to these adapter ids."
+    },
+    "concat": {
+      "type": "boolean",
+      "default": true,
+      "description": "Whether this rule is concatenated with siblings into one rules file (true) or kept as a separate file when the target supports it (false)."
+    },
+    "order": {
+      "type": "number",
+      "description": "Sort key for concatenation order. Lower values appear first."
+    }
+  }
+}

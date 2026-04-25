@@ -1,0 +1,70 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://leclabs.dev/agentir/v1/hook.schema.json",
+  "title": "Hook",
+  "description": "A lifecycle hook. Uses the canonical event taxonomy; per-adapter mapping translates to native event names at compile time.",
+  "type": "object",
+  "required": ["events", "command"],
+  "additionalProperties": false,
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Stable identifier; usually the source filename without extension."
+    },
+    "events": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "$ref": "#/$defs/CanonicalEvent" },
+      "description": "Canonical events that trigger this hook."
+    },
+    "matcher": {
+      "type": "string",
+      "description": "Glob (or literal, per adapter capability) matched against event subject — tool name for tool.use.*, file path for file.*, etc."
+    },
+    "command": {
+      "type": "string",
+      "description": "Shell command to execute when the hook fires."
+    },
+    "timeout": {
+      "type": "number",
+      "description": "Timeout in seconds. Defaults to client default if omitted."
+    },
+    "targets": { "type": "array", "items": { "type": "string" } },
+    "excludes": { "type": "array", "items": { "type": "string" } }
+  },
+  "$defs": {
+    "CanonicalEvent": {
+      "title": "CanonicalEvent",
+      "enum": [
+        "session.start",
+        "session.resume",
+        "session.end",
+        "prompt.submit",
+        "turn.end",
+        "turn.fail",
+        "agent.idle",
+        "model.request.pre",
+        "model.response.post",
+        "tool.use.pre",
+        "tool.use.post",
+        "tool.use.fail",
+        "file.edit.post",
+        "file.read.pre",
+        "file.change.external",
+        "shell.exec.pre",
+        "shell.exec.post",
+        "mcp.exec.pre",
+        "mcp.exec.post",
+        "subagent.start",
+        "subagent.end",
+        "permission.request",
+        "permission.deny",
+        "notification",
+        "context.compact.pre",
+        "context.compact.post",
+        "config.changed",
+        "instructions.loaded"
+      ]
+    }
+  }
+}

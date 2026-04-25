@@ -1,0 +1,36 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://leclabs.dev/agentir/v1/skill.schema.json",
+  "title": "Skill",
+  "description": "An Agent Skill — SKILL.md content plus optional adjacent files.",
+  "type": "object",
+  "required": ["name", "description", "body"],
+  "additionalProperties": false,
+  "properties": {
+    "name": {
+      "type": "string",
+      "pattern": "^[a-z0-9][a-z0-9-]*$",
+      "description": "Skill slug (kebab-case). Becomes the directory name in target client output."
+    },
+    "description": {
+      "type": "string",
+      "description": "One-line description used by the agent to decide when to invoke the skill."
+    },
+    "body": {
+      "type": "string",
+      "description": "SKILL.md markdown body."
+    },
+    "allowed_tools": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Tools the skill is permitted to invoke. May be dropped on adapters that lack the field."
+    },
+    "files": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Paths to additional files in the skill directory, relative to the skill root."
+    },
+    "targets": { "type": "array", "items": { "type": "string" } },
+    "excludes": { "type": "array", "items": { "type": "string" } }
+  }
+}

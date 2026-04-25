@@ -1,0 +1,31 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://leclabs.dev/agentir/v1/command.schema.json",
+  "title": "Command",
+  "description": "A slash command. Markdown body becomes the prompt; frontmatter declares args, model, tools.",
+  "type": "object",
+  "required": ["name", "body"],
+  "additionalProperties": false,
+  "properties": {
+    "name": {
+      "type": "string",
+      "pattern": "^[a-z0-9][a-z0-9-]*$"
+    },
+    "body": { "type": "string" },
+    "description": { "type": "string" },
+    "argument_hint": {
+      "type": "string",
+      "description": "Hint shown to user about expected arguments."
+    },
+    "model": {
+      "type": "string",
+      "description": "Model override for this command."
+    },
+    "allowed_tools": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "targets": { "type": "array", "items": { "type": "string" } },
+    "excludes": { "type": "array", "items": { "type": "string" } }
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://leclabs.dev/agentir/v1/permissions.schema.json",
+  "title": "Permissions",
+  "description": "Allow / deny / ask lists. Patterns are tool matchers in client-native syntax (e.g. 'Bash(git status)', 'Read(*)').",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "allow": { "type": "array", "items": { "type": "string" } },
+    "deny": { "type": "array", "items": { "type": "string" } },
+    "ask": { "type": "array", "items": { "type": "string" } }
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://leclabs.dev/agentir/v1/ir.schema.json",
+  "title": "IR",
+  "description": "The complete agentir intermediate representation. Top-level container of manifest plus all resource collections.",
+  "type": "object",
+  "required": ["manifest"],
+  "additionalProperties": false,
+  "properties": {
+    "manifest": { "$ref": "manifest.schema.json" },
+    "rules": {
+      "type": "array",
+      "items": { "$ref": "rule.schema.json" }
+    },
+    "skills": {
+      "type": "array",
+      "items": { "$ref": "skill.schema.json" }
+    },
+    "commands": {
+      "type": "array",
+      "items": { "$ref": "command.schema.json" }
+    },
+    "agents": {
+      "type": "array",
+      "items": { "$ref": "agent.schema.json" }
+    },
+    "hooks": {
+      "type": "array",
+      "items": { "$ref": "hook.schema.json" }
+    },
+    "mcp_servers": {
+      "type": "array",
+      "items": { "$ref": "mcp-server.schema.json" }
+    },
+    "permissions": { "$ref": "permissions.schema.json" },
+    "env": { "$ref": "env.schema.json" }
+  }
+}

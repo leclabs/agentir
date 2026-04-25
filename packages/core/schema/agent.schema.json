@@ -1,0 +1,28 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://leclabs.dev/agentir/v1/agent.schema.json",
+  "title": "Agent",
+  "description": "A subagent definition. System prompt body plus frontmatter declaring tools, model, color.",
+  "type": "object",
+  "required": ["name", "body"],
+  "additionalProperties": false,
+  "properties": {
+    "name": {
+      "type": "string",
+      "pattern": "^[a-z0-9][a-z0-9-]*$"
+    },
+    "body": {
+      "type": "string",
+      "description": "System prompt for the subagent."
+    },
+    "description": { "type": "string" },
+    "model": { "type": "string" },
+    "tools": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "color": { "type": "string" },
+    "targets": { "type": "array", "items": { "type": "string" } },
+    "excludes": { "type": "array", "items": { "type": "string" } }
+  }
+}
