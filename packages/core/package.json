@@ -1,6 +1,6 @@
 {
   "name": "@leclabs/agentir-core",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "agentir IR types, schema, and engine",
   "license": "MIT",
   "type": "module",
@@ -16,7 +16,10 @@
       "import": "./dist/schema.js"
     }
   },
-  "files": ["dist", "schema"],
+  "files": [
+    "dist",
+    "schema"
+  ],
   "scripts": {
     "gen": "tsx scripts/generate-types.ts",
     "build": "tsup",

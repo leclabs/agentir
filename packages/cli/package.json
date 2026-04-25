@@ -1,13 +1,15 @@
 {
   "name": "@leclabs/agentir",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "agentir CLI — universal agent configuration translator",
   "license": "MIT",
   "type": "module",
   "bin": {
     "agentir": "./dist/index.js"
   },
-  "files": ["dist"],
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "build": "tsup",
     "typecheck": "tsc --noEmit",

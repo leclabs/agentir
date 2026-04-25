@@ -1,21 +1,53 @@
 {
   "name": "@leclabs/agentir-adapters",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "Official agentir adapters for 10 AI coding clients",
   "license": "MIT",
   "type": "module",
-  "files": ["dist"],
+  "files": [
+    "dist"
+  ],
   "exports": {
-    "./aider":    { "types": "./dist/aider/index.d.ts",    "import": "./dist/aider/index.js" },
-    "./claude":   { "types": "./dist/claude/index.d.ts",   "import": "./dist/claude/index.js" },
-    "./cline":    { "types": "./dist/cline/index.d.ts",    "import": "./dist/cline/index.js" },
-    "./codex":    { "types": "./dist/codex/index.d.ts",    "import": "./dist/codex/index.js" },
-    "./continue": { "types": "./dist/continue/index.d.ts", "import": "./dist/continue/index.js" },
-    "./copilot":  { "types": "./dist/copilot/index.d.ts",  "import": "./dist/copilot/index.js" },
-    "./crush":    { "types": "./dist/crush/index.d.ts",    "import": "./dist/crush/index.js" },
-    "./cursor":   { "types": "./dist/cursor/index.d.ts",   "import": "./dist/cursor/index.js" },
-    "./gemini":   { "types": "./dist/gemini/index.d.ts",   "import": "./dist/gemini/index.js" },
-    "./opencode": { "types": "./dist/opencode/index.d.ts", "import": "./dist/opencode/index.js" }
+    "./aider": {
+      "types": "./dist/aider/index.d.ts",
+      "import": "./dist/aider/index.js"
+    },
+    "./claude": {
+      "types": "./dist/claude/index.d.ts",
+      "import": "./dist/claude/index.js"
+    },
+    "./cline": {
+      "types": "./dist/cline/index.d.ts",
+      "import": "./dist/cline/index.js"
+    },
+    "./codex": {
+      "types": "./dist/codex/index.d.ts",
+      "import": "./dist/codex/index.js"
+    },
+    "./continue": {
+      "types": "./dist/continue/index.d.ts",
+      "import": "./dist/continue/index.js"
+    },
+    "./copilot": {
+      "types": "./dist/copilot/index.d.ts",
+      "import": "./dist/copilot/index.js"
+    },
+    "./crush": {
+      "types": "./dist/crush/index.d.ts",
+      "import": "./dist/crush/index.js"
+    },
+    "./cursor": {
+      "types": "./dist/cursor/index.d.ts",
+      "import": "./dist/cursor/index.js"
+    },
+    "./gemini": {
+      "types": "./dist/gemini/index.d.ts",
+      "import": "./dist/gemini/index.js"
+    },
+    "./opencode": {
+      "types": "./dist/opencode/index.d.ts",
+      "import": "./dist/opencode/index.js"
+    }
   },
   "scripts": {
     "build": "tsup",
